@@ -1,7 +1,14 @@
 import Head from 'next/head'
 import { Box, Heading, Flex, Stat, StatLabel, StatNumber, Text } from '@chakra-ui/core';
+import useSWR from 'swr';
 
+async function fetcher(...arg) {
+  const res = await fetch(...arg);
+
+  return res.json();
+}
 const Home = () => {
+  const { data } = useSWR('/api/github', fetcher)
   return (
     <>
       <Box mt={5}>
@@ -17,7 +24,7 @@ const Home = () => {
                 </Text>
               </StatLabel>
               <StatNumber>
-                4
+                { data ? data.stars : "Loading" }
               </StatNumber>
             </Stat>
           </Box>
@@ -29,7 +36,7 @@ const Home = () => {
                 </Text>
               </StatLabel>
               <StatNumber>
-                4
+              { data ? data.followers : "Loading" }
               </StatNumber>
             </Stat>
           </Box>
@@ -41,7 +48,7 @@ const Home = () => {
                 </Text>
               </StatLabel>
               <StatNumber>
-                4
+              { data ? data.starred : "Loading" }
               </StatNumber>
             </Stat>
           </Box>
