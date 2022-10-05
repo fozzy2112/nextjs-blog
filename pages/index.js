@@ -1,6 +1,5 @@
 import Head from 'next/head'
-import { Box, Heading } from '@chakra-ui/core';
-import useSWR from 'swr';
+import { Box, Heading, Flex, Stat, StatLabel, StatNumber, Text } from '@chakra-ui/core';
 
 const Home = () => {
   return (
@@ -10,10 +9,42 @@ const Home = () => {
           Difio Github Stats
         </Heading>
         <Flex justify="center">
-          <Box></Box>
-          <Box></Box>
-          <Box></Box>
-          <Box></Box>
+          <Box w="300px" p={5} ml="8" mb={3} borderWidth="1px" rounded="lg">
+            <Stat>
+              <StatLabel>
+                <Text fontSize="xl">
+                  Github Stars
+                </Text>
+              </StatLabel>
+              <StatNumber>
+                4
+              </StatNumber>
+            </Stat>
+          </Box>
+          <Box w="300px" p={5} ml="8" mb={3} borderWidth="1px" rounded="lg">
+            <Stat>
+              <StatLabel>
+                <Text fontSize="xl">
+                  Github Followers
+                </Text>
+              </StatLabel>
+              <StatNumber>
+                4
+              </StatNumber>
+            </Stat>
+          </Box>
+          <Box w="300px" p={5} ml="8" mb={3} borderWidth="1px" rounded="lg">
+            <Stat>
+              <StatLabel>
+                <Text fontSize="xl">
+                  Repo Starred
+                </Text>
+              </StatLabel>
+              <StatNumber>
+                4
+              </StatNumber>
+            </Stat>
+          </Box>
         </Flex>
       </Box>
     </>
